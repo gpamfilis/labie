@@ -6,7 +6,6 @@ import numpy as np
 import xmltodict
 
 
-
 def get_time_step_from_summary_file(summary_file_path, number_of_data_points):
     summary = open(summary_file_path, "r")
     times = [t for t in summary.readlines() if 'Start Time' in t or 'Stop Time' in t]
@@ -37,3 +36,5 @@ def generate_time_steps_from_tdm_file(base_dir, file_name, number_of_data_points
     relative_time_maximum = float(relative_time_dict['maximum'])
     time_steps = np.linspace(relative_time_minimum, relative_time_maximum, num=number_of_data_points).round(3)
     return time_steps
+
+
